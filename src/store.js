@@ -3,14 +3,21 @@ import {
   readable
 } from "svelte/store";
 
+export const currentUser = writable(undefined);
+
 export const currentPage = writable('home');
 export const currentAnime = writable(undefined);
+export const currentVideo = writable(undefined);
 
 export const API = readable({
   url: process.env.API_URL,
   endpoints: {
     anime: 'anime',
-    episode: 'episode'
+    episode: 'episode',
+    matching: 'matching',
+    notification: 'notification',
+    scraper: 'scraper',
+    queue: 'queue'
   }
 })
 
@@ -72,3 +79,20 @@ export const animeSorts = readable([
   'Score',
   'Title'
 ])
+
+export const animeStatuses = readable([
+  'None',
+  'Watching',
+  'Paused',
+  'Completed',
+  'Planning',
+  'Dropped'
+])
+
+export const animeEpisodesFrom = readable([
+  'dreamsub'
+])
+
+export const animeEpisodesFromTemplate = readable({
+  'dreamsub': 'https://dreamsub.stream/anime/anime-name'
+})

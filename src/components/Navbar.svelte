@@ -1,5 +1,12 @@
 <script>
-  import { currentPage } from "../store.js";
+  import Button from "./Button.svelte";
+
+  import { get } from "svelte/store";
+  import { currentPage, currentUser } from "../store.js";
+
+  let user = get(currentUser);
+
+  currentUser.subscribe(newUser => (user = newUser));
 
   function changePage(page) {
     if (page === "github") {
@@ -7,7 +14,24 @@
       return;
     }
 
+    if (page === "profile") {
+      window.open(user.siteUrl);
+      return;
+    }
+
     currentPage.set(page);
+  }
+
+  function tryOauthLogin() {
+    window.location.href =
+      "https://anilist.co/api/v2/oauth/authorize?client_id=" +
+      process.env.ANILIST_CLIENTID +
+      "&response_type=token";
+  }
+
+  function tryLogout() {
+    localStorage.removeItem("current_user");
+    window.location.reload();
   }
 </script>
 
@@ -61,10 +85,13 @@
     transition: 0.3s;
   }
 
-  navbar .side img.profile {
+  navbar .side div.image-profile {
     display: block;
     height: 32px;
+    width: 32px;
     background-color: #8d46b8;
+    background-position: center;
+    background-size: cover;
     border-radius: 16px;
   }
 
@@ -94,14 +121,25 @@
       </li>
     </ul>
     <ul class="side">
+      {#if user}
+        <li>
+          <img
+            src="/images/nav_notifications_icon.png"
+            alt="Notifications"
+            on:click={() => changePage('notification')} />
+        </li>
+        <li on:click={() => changePage('profile')}>Profile</li>
+      {/if}
       <li>
-        <img src="/images/nav_search_icon.png" alt="Search" />
-      </li>
-      <li>
-        <img
-          class="profile"
-          src="https://s4.anilist.co/file/anilistcdn/user/avatar/large/default.png"
-          alt="Profile" />
+        {#if !user}
+          <Button text="Login" css="font-size:14px" callback={tryOauthLogin} />
+        {:else}
+          <div
+            class="image-profile"
+            title="Logout"
+            style="background-image:url('{user.avatar}')"
+            on:click={tryLogout} />
+        {/if}
       </li>
     </ul>
   </nav>

@@ -2,8 +2,10 @@
   import TextBox from "../components/TextBox.svelte";
   import ComboBox from "../components/ComboBox.svelte";
   import CheckBox from "../components/CheckBox.svelte";
+  import Button from "../components/Button.svelte";
   import SearchTag from "../components/SearchTag.svelte";
   import SearchResult from "../components/SearchResult.svelte";
+  import Pagination from "../components/Pagination.svelte";
 
   import { get } from "svelte/store";
   import { animeGenres, animeTypes, animeSorts } from "../store.js";
@@ -14,34 +16,46 @@
     title: "",
     genres: [],
     type: "TV",
-    sort: "Title",
-    desc: false,
+    sort: "Score",
+    desc: true,
+    page: 1,
     results: []
   };
   let searchTimeout;
+  let emptyPage;
 
   function onTitleChange(text) {
     search.title = text;
+    search.page = 1;
     onChange();
   }
 
   function onGenresChange(values) {
     search.genres = values;
+    search.page = 1;
     onChange();
   }
 
   function onTypeChange(value) {
     search.type = value;
+    search.page = 1;
     onChange();
   }
 
   function onSortChange(value) {
     search.sort = value;
+    search.page = 1;
     onChange();
   }
 
   function onSortDirectionChange(value) {
     search.desc = value;
+    search.page = 1;
+    onChange();
+  }
+
+  function onPageChange(value) {
+    search.page = value;
     onChange();
   }
 
@@ -55,9 +69,23 @@
           search.type,
           search.sort,
           search.desc,
-          results => (search.results = results)
+          search.page,
+          results => {
+            if (results.length === 0) {
+              emptyPage = true;
+
+              if (search.page > 1) {
+                search.page--;
+              } else {
+                search.results = [];
+              }
+            } else {
+              search.results = results;
+              emptyPage = false;
+            }
+          }
         ),
-      1000
+      500
     );
   }
 
@@ -66,7 +94,7 @@
 
 <style>
   main {
-    margin: 42px auto;
+    margin: 24px auto;
     max-width: 1200px;
   }
 
@@ -88,7 +116,18 @@
     grid-template-columns: repeat(auto-fill, 185px);
     grid-gap: 25px 20px;
     justify-content: space-between;
-    margin-top: 42px;
+    margin-top: 12px;
+    padding-top: 12px;
+    min-height: 555px;
+    border-top: 1px solid #d8e0e9;
+  }
+
+  .search-results.empty {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #d8e0e9;
+    border-radius: 8px;
   }
 </style>
 
@@ -108,10 +147,19 @@
     <ComboBox
       hint="Sort"
       items={get(animeSorts)}
-      selected="Title"
+      selected="Score"
       single={true}
       callback={onSortChange} />
-    <CheckBox label="Sort descending" callback={onSortDirectionChange} />
+    <CheckBox
+      label="Sort descending"
+      checked={true}
+      callback={onSortDirectionChange} />
+    <Button
+      icon="keyboard"
+      tooltip="You can use <b>arrow keys</b> or <b>swipe's gestures</b> to
+      change page"
+      circle={true}
+      css="margin-left:auto" />
   </div>
   <div class="search-tags">
     {#if search.title !== ''}
@@ -123,9 +171,15 @@
       <SearchTag name="Sort" tags={[search.sort]} />
     {/if}
   </div>
-  <div class="search-results">
+  <div class="search-results {search.results.length === 0 ? 'empty' : ''}">
+    {#if search.results.length === 0}
+      <div class="no-results">
+        <img src="/images/aniapi_404.png" alt="404 - Not found" />
+      </div>
+    {/if}
     {#each search.results as result}
       <SearchResult data={result} />
     {/each}
   </div>
+  <Pagination page={search.page} empty={emptyPage} callback={onPageChange} />
 </main>

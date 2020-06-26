@@ -2,6 +2,8 @@
   export let hint;
   export let callback;
   export let text;
+  export let icon = "search";
+  export let css;
 
   let empty = true;
 
@@ -52,7 +54,8 @@
   }
 
   input {
-    width: 140px;
+    min-width: 140px;
+    width: 100%;
     background-color: transparent;
     border: none;
     outline: none;
@@ -72,8 +75,8 @@
   }
 </style>
 
-<div class="textbox">
-  <i class="fas fa-search fa-fw" />
+<div class="textbox" style={css}>
+  <i class="fas fa-{icon} fa-fw" />
   <input type="text" placeholder={hint} value={text} on:keyup={keyUp} />
   {#if !empty}
     <i class="fas fa-times fa-fw" on:click={clear} />

@@ -19,6 +19,7 @@
     margin-left: 24px;
     color: #748899;
     font-size: 14px;
+    cursor: pointer;
   }
 
   .checkbox .circle {
@@ -32,7 +33,6 @@
     border: 4px solid white;
     box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1);
     border-radius: 12px;
-    cursor: pointer;
     transition: 0.3s;
   }
 
