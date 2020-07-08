@@ -11,15 +11,13 @@
   function changePage(page) {
     if (page === "github") {
       window.open("https://github.com/AniAPI-Team/aniapi-svelte");
-      return;
-    }
-
-    if (page === "profile") {
+    } else if (page === "profile") {
       window.open(user.siteUrl);
-      return;
+    } else if (page === "api") {
+      window.open("https://github.com/AniAPI-Team/aniapi-go/wiki");
+    } else {
+      currentPage.set(page);
     }
-
-    currentPage.set(page);
   }
 
   function tryOauthLogin() {
@@ -30,8 +28,10 @@
   }
 
   function tryLogout() {
-    localStorage.removeItem("current_user");
-    window.location.reload();
+    if (confirm("Are you sure you want to logout?")) {
+      localStorage.removeItem("current_user");
+      window.location.reload();
+    }
   }
 </script>
 
@@ -99,6 +99,14 @@
     navbar nav {
       padding: 0 14px;
     }
+
+    navbar ul li:not(:last-child) {
+      margin-right: 16px;
+    }
+
+    #profile {
+      display: none;
+    }
   }
 </style>
 
@@ -128,7 +136,7 @@
             alt="Notifications"
             on:click={() => changePage('notification')} />
         </li>
-        <li on:click={() => changePage('profile')}>Profile</li>
+        <li id="profile" on:click={() => changePage('profile')}>Profile</li>
       {/if}
       <li>
         {#if !user}

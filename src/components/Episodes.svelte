@@ -113,6 +113,12 @@
     margin-top: 8px;
     font-weight: 500;
   }
+
+  @media screen and (max-width: 1200px) {
+    .episodes {
+      grid-template-columns: repeat(1, 1fr);
+    }
+  }
 </style>
 
 <div class="episodes">

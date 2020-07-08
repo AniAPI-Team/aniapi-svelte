@@ -74,6 +74,17 @@
     background-color: rgba(0, 0, 0, 0.3);
     transition: 0.3s;
   }
+
+  @media screen and (max-width: 1200px) {
+    .video-player {
+      bottom: 0;
+      right: 0;
+    }
+
+    .video-player video {
+      width: 100%;
+    }
+  }
 </style>
 
 <div class="video-player {src ? 'visible' : ''}">

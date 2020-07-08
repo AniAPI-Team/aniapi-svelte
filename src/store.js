@@ -11,13 +11,12 @@ export const currentVideo = writable(undefined);
 
 export const API = readable({
   url: process.env.API_URL,
+  socket: process.env.API_SOCKET,
   endpoints: {
     anime: 'anime',
     episode: 'episode',
     matching: 'matching',
-    notification: 'notification',
-    scraper: 'scraper',
-    queue: 'queue'
+    notification: 'notification'
   }
 })
 

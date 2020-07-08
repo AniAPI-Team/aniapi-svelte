@@ -174,6 +174,16 @@
     margin-top: 8px;
     font-weight: 500;
   }
+
+  @media screen and (max-width: 1200px) {
+    .matchings {
+      grid-template-columns: none;
+    }
+
+    .matching {
+      margin-right: 8px !important;
+    }
+  }
 </style>
 
 <div class="matchings">

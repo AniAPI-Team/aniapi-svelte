@@ -1,7 +1,7 @@
 html,
 body {
 	margin: 0;
-	height: 100%;
+	min-height: 100%;
 }
 
 body * {
@@ -17,4 +17,12 @@ body {
 b,
 strong {
 	font-weight: 600;
+}
+
+@media screen and (max-width: 1200px) {
+
+	html,
+	body {
+		overflow-x: hidden;
+	}
 }

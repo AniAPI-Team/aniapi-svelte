@@ -101,9 +101,35 @@
     padding: 16px;
     font-size: 12px;
   }
+
+  @media screen and (max-width: 1200px) {
+    main {
+      padding: 0 14px;
+      min-height: 550px;
+    }
+
+    .notification {
+      width: 100%;
+      max-height: 100px;
+    }
+  }
 </style>
 
 <main>
+  {#if notifications.length === 0}
+    <div class="notification" style="width:100%">
+      <div
+        class="picture"
+        style="background-image:('/images/aniapi_icon.png')" />
+      <div class="info">
+        <span class="anime">All is ok</span>
+        <span class="message">
+          Seems like you have no new notifications to read
+        </span>
+      </div>
+      <span class="time" />
+    </div>
+  {/if}
   {#each notifications as n}
     <div class="notification">
       <div

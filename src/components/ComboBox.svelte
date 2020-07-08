@@ -143,6 +143,7 @@
   }
 
   input {
+    flex: 1;
     width: 140px;
     background-color: transparent;
     border: none;

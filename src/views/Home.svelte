@@ -129,6 +129,25 @@
     background-color: #d8e0e9;
     border-radius: 8px;
   }
+
+  @media screen and (max-width: 1200px) {
+    main {
+      padding: 0 14px;
+    }
+
+    .search-filters {
+      display: grid;
+      grid-template-columns: repeat(1, 100%);
+      grid-gap: 16px;
+    }
+
+    .search-results {
+      display: flex;
+      flex-wrap: wrap;
+      grid-gap: none;
+      grid-template-columns: none;
+    }
+  }
 </style>
 
 <main>

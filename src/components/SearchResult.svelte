@@ -200,6 +200,18 @@
     font-size: 12px;
     color: rgb(173, 109, 211);
   }
+
+  @media screen and (max-width: 1200px) {
+    .card {
+      margin-bottom: 16px;
+      width: 145px;
+      max-height: 225px;
+    }
+
+    .card .picture {
+      height: 225px;
+    }
+  }
 </style>
 
 <div

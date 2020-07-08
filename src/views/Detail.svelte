@@ -108,6 +108,13 @@
     reloadMatching = false;
     reloadMatching = true;
   }
+
+  function share() {
+    let url = new URL(window.location.href);
+    url = url.origin + "?anime=" + anime.id;
+
+    window.prompt("Copy to clipboard: Ctlr+C, Enter", url);
+  }
 </script>
 
 <style>
@@ -175,6 +182,10 @@
   .head .links {
     margin-left: auto;
     z-index: 1;
+  }
+
+  .head .links a {
+    cursor: pointer;
   }
 
   .head .links img {
@@ -246,6 +257,44 @@
   .main .episodes {
     margin-top: 24px;
   }
+
+  @media screen and (max-width: 1200px) {
+    main {
+      flex-direction: column;
+    }
+
+    .head,
+    main {
+      padding: 0 14px;
+    }
+
+    .banner .score {
+      right: 14px;
+    }
+
+    .side {
+      margin-bottom: 24px;
+      width: 100%;
+      max-width: 100%;
+    }
+
+    .main {
+      max-width: 100%;
+    }
+
+    .head {
+      flex-direction: column;
+    }
+
+    .head .picture {
+      margin-right: auto;
+      margin-bottom: 32px;
+    }
+
+    .head .title {
+      margin-left: 0;
+    }
+  }
 </style>
 
 <div class="detail">
@@ -261,6 +310,9 @@
       <div class="picture" style="background-image:url({anime.picture})" />
       <div class="title">{anime.title}</div>
       <div class="links">
+        <a on:click={share}>
+          <img src="/images/detail_share_icon.png" alt="Share Icon" />
+        </a>
         <a href="https://myanimelist.net/anime/{anime.mal_id}" target="_blank">
           <img src="/images/mal_logo.jpg" alt="MyAnimeList Logo" />
         </a>
