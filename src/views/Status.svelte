@@ -1,45 +1,74 @@
 <script>
   import QueueItem from "../components/QueueItem.svelte";
 
+  import { API } from "../store.js";
+  import { get } from "svelte/store";
   import { getScraper, getAnime, getQueue } from "../api.js";
 
+  const api = get(API);
+
+  let stopped = true;
   let animeScraping;
-  let idling;
 
   let queueItems = [];
 
-  getAnimeScraping();
-  setInterval(getAnimeScraping, 5000);
+  let socket = new WebSocket(api.socket);
 
-  getQueueItems();
-  setInterval(getQueueItems, 30 * 1000);
+  socket.onmessage = e => {
+    let message = JSON.parse(e.data);
 
-  function getAnimeScraping() {
-    getScraper(s => {
-      idling = false;
+    switch (message.channel) {
+      case "scraper":
+        stopped = !message.data.anime;
 
-      if (s.anime_id === 0) {
-        return;
-      }
+        if (stopped) {
+          animeScraping = {
+            start_time: message.data.start_time
+          };
 
-      getAnime(s.anime_id, a => {
-        if (!a.genres) {
-          a.genres = [];
+          return;
         }
 
-        animeScraping = a;
-        animeScraping.start_time = s.start_time;
+        if (!message.data.anime.genres) {
+          message.data.anime.genres = [];
+        }
 
-        idling = true;
-      });
-    });
-  }
+        animeScraping = message.data.anime;
+        animeScraping.start_time = message.data.start_time;
+        return;
+      case "queue":
+        if (!message.data) {
+          return;
+        }
 
-  function getQueueItems() {
-    getQueue(res => {
-      queueItems = res;
-    });
-  }
+        if (Array.isArray(message.data)) {
+          queueItems = message.data;
+          return;
+        }
+
+        if (message.data.completed) {
+          let index = queueItems
+            .map(x => {
+              return x.anime.id;
+            })
+            .indexOf(message.data.anime.id);
+          queueItems.splice(index, 1);
+        } else if (message.data.running) {
+          let index = queueItems
+            .map(x => {
+              return x.anime.id;
+            })
+            .indexOf(message.data.anime.id);
+
+          queueItems[index].running = true;
+        } else {
+          queueItems.push(message.data);
+        }
+
+        queueItems = queueItems;
+        return;
+    }
+  };
 
   function getTimePassedFromDate(date) {
     let d = new Date(date);
@@ -75,6 +104,10 @@
     margin-bottom: 32px;
   }
 
+  .section:nth-child(2) {
+    min-height: 250px;
+  }
+
   .section-title {
     margin-right: 32px;
     width: 180px;
@@ -96,38 +129,27 @@
     font-size: 14px;
   }
 
-  .scraper::after {
-    visibility: hidden;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 0;
-    height: 4px;
-    content: "";
-    background-color: #8d46b8;
-    border-bottom-left-radius: 8px;
-    border-bottom-right-radius: 8px;
-  }
-
-  .scraper.idling::after {
-    visibility: visible;
-    width: 0;
-    animation-name: idle;
-    animation-duration: 5s;
-    animation-iteration-count: infinite;
-  }
-
-  @keyframes idle {
+  @keyframes hide {
     from {
-      width: 100%;
+      opacity: 1;
     }
     to {
-      width: 0;
+      opacity: 0;
+    }
+  }
+
+  @keyframes show {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
     }
   }
 
   .anime {
     display: flex;
+    opacity: 1;
   }
 
   .anime .picture {
@@ -176,13 +198,47 @@
     flex-wrap: wrap;
     flex: 1;
   }
+
+  @media screen and (max-width: 1200px) {
+    main {
+      padding: 0 14px;
+    }
+
+    .section {
+      flex-direction: column;
+    }
+
+    .section:nth-child(2) {
+      min-height: 350px;
+    }
+
+    .section-title {
+      margin-right: 0;
+      margin-bottom: 16px;
+    }
+
+    .scraper {
+      flex-direction: column;
+      justify-content: unset;
+      align-items: unset;
+    }
+
+    .genres {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .run {
+      margin-top: 8px;
+    }
+  }
 </style>
 
 <main>
   <div class="section">
     <div class="section-title">Scraper Engine</div>
-    {#if animeScraping}
-      <div class="scraper {idling ? 'idling' : ''}">
+    {#if animeScraping && !stopped}
+      <div class="scraper">
         <div class="anime">
           <div
             class="picture"
@@ -200,6 +256,22 @@
         <div class="run">
           <span>Run started</span>
           {getTimePassedFromDate(animeScraping.start_time)}
+        </div>
+      </div>
+    {:else}
+      <div class="scraper">
+        <div class="anime">
+          <div
+            class="picture"
+            style="background-image:url('/images/aniapi_icon.png')" />
+          <div class="info">
+            <span class="title">Idle state</span>
+            <span class="type">Actually not running</span>
+            <div class="genres" />
+          </div>
+        </div>
+        <div class="run">
+          <span>Waiting for next run...</span>
         </div>
       </div>
     {/if}
