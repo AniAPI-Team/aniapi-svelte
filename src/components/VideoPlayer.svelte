@@ -85,6 +85,16 @@
       width: 100%;
     }
   }
+
+  @media screen and (orientation: landscape) {
+    .video-player {
+      width: 100%;
+    }
+
+    .video-player video {
+      height: 100%;
+    }
+  }
 </style>
 
 <div class="video-player {src ? 'visible' : ''}">

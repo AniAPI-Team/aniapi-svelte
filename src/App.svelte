@@ -45,7 +45,10 @@
 </script>
 
 <style>
-
+  main {
+    background-color: rgb(237, 241, 245);
+    padding: 24px 0;
+  }
 </style>
 
 <Navbar />

@@ -105,7 +105,7 @@
   }
 
   .section:nth-child(2) {
-    min-height: 250px;
+    min-height: 190px;
   }
 
   .section-title {
@@ -206,10 +206,6 @@
 
     .section {
       flex-direction: column;
-    }
-
-    .section:nth-child(2) {
-      min-height: 350px;
     }
 
     .section-title {

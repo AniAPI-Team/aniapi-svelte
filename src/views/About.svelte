@@ -74,6 +74,7 @@
 <style>
   main {
     margin: 24px auto;
+    margin-top: -24px !important;
     max-width: 1200px;
   }
 

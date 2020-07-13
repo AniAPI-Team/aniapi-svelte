@@ -1398,16 +1398,16 @@ var app = (function () {
     			i = element("i");
     			t = space();
     			video_1 = element("video");
-    			attr_dev(i, "class", "fas fa-times fa-fw svelte-1jia0p5");
-    			add_location(i, file$2, 90, 2, 1507);
+    			attr_dev(i, "class", "fas fa-times fa-fw svelte-2icmp0");
+    			add_location(i, file$2, 100, 2, 1667);
     			if (video_1.src !== (video_1_src_value = /*src*/ ctx[0])) attr_dev(video_1, "src", video_1_src_value);
     			video_1.controls = true;
     			video_1.autoplay = true;
     			attr_dev(video_1, "disablepictureinpicture", "");
-    			attr_dev(video_1, "class", "svelte-1jia0p5");
-    			add_location(video_1, file$2, 91, 2, 1560);
-    			attr_dev(div, "class", div_class_value = "video-player " + (/*src*/ ctx[0] ? "visible" : "") + " svelte-1jia0p5");
-    			add_location(div, file$2, 89, 0, 1454);
+    			attr_dev(video_1, "class", "svelte-2icmp0");
+    			add_location(video_1, file$2, 101, 2, 1720);
+    			attr_dev(div, "class", div_class_value = "video-player " + (/*src*/ ctx[0] ? "visible" : "") + " svelte-2icmp0");
+    			add_location(div, file$2, 99, 0, 1614);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -1429,7 +1429,7 @@ var app = (function () {
     				attr_dev(video_1, "src", video_1_src_value);
     			}
 
-    			if (dirty & /*src*/ 1 && div_class_value !== (div_class_value = "video-player " + (/*src*/ ctx[0] ? "visible" : "") + " svelte-1jia0p5")) {
+    			if (dirty & /*src*/ 1 && div_class_value !== (div_class_value = "video-player " + (/*src*/ ctx[0] ? "visible" : "") + " svelte-2icmp0")) {
     				attr_dev(div, "class", div_class_value);
     			}
     		},
@@ -7403,7 +7403,7 @@ var app = (function () {
     	return child_ctx;
     }
 
-    // (319:8) {#if anime.anilist_id}
+    // (323:8) {#if anime.anilist_id}
     function create_if_block_4(ctx) {
     	let a;
     	let img;
@@ -7416,12 +7416,12 @@ var app = (function () {
     			img = element("img");
     			if (img.src !== (img_src_value = "/images/anilist_logo.png")) attr_dev(img, "src", img_src_value);
     			attr_dev(img, "alt", "AniList Logo");
-    			attr_dev(img, "class", "svelte-1blfeex");
-    			add_location(img, file$g, 320, 12, 6802);
+    			attr_dev(img, "class", "svelte-r51hmw");
+    			add_location(img, file$g, 324, 12, 6846);
     			attr_dev(a, "href", a_href_value = "https://anilist.co/anime/" + /*anime*/ ctx[0].anilist_id);
     			attr_dev(a, "target", "_blank");
-    			attr_dev(a, "class", "svelte-1blfeex");
-    			add_location(a, file$g, 319, 10, 6718);
+    			attr_dev(a, "class", "svelte-r51hmw");
+    			add_location(a, file$g, 323, 10, 6762);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, a, anchor);
@@ -7441,14 +7441,14 @@ var app = (function () {
     		block,
     		id: create_if_block_4.name,
     		type: "if",
-    		source: "(319:8) {#if anime.anilist_id}",
+    		source: "(323:8) {#if anime.anilist_id}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (329:6) {#if anime.trailer}
+    // (333:6) {#if anime.trailer}
     function create_if_block_3(ctx) {
     	let iframe;
     	let iframe_src_value;
@@ -7458,10 +7458,10 @@ var app = (function () {
     			iframe = element("iframe");
     			if (iframe.src !== (iframe_src_value = /*anime*/ ctx[0].trailer)) attr_dev(iframe, "src", iframe_src_value);
     			attr_dev(iframe, "title", "Trailer");
-    			attr_dev(iframe, "class", "trailer svelte-1blfeex");
+    			attr_dev(iframe, "class", "trailer svelte-r51hmw");
     			attr_dev(iframe, "frameborder", "0");
     			iframe.allowFullscreen = true;
-    			add_location(iframe, file$g, 329, 8, 6997);
+    			add_location(iframe, file$g, 333, 8, 7041);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, iframe, anchor);
@@ -7480,14 +7480,14 @@ var app = (function () {
     		block,
     		id: create_if_block_3.name,
     		type: "if",
-    		source: "(329:6) {#if anime.trailer}",
+    		source: "(333:6) {#if anime.trailer}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (338:8) {#if user}
+    // (342:8) {#if user}
     function create_if_block_1$6(ctx) {
     	let t;
     	let if_block_anchor;
@@ -7569,14 +7569,14 @@ var app = (function () {
     		block,
     		id: create_if_block_1$6.name,
     		type: "if",
-    		source: "(338:8) {#if user}",
+    		source: "(342:8) {#if user}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (343:10) {#if status !== 'None'}
+    // (347:10) {#if status !== 'None'}
     function create_if_block_2$5(ctx) {
     	let current;
 
@@ -7622,14 +7622,14 @@ var app = (function () {
     		block,
     		id: create_if_block_2$5.name,
     		type: "if",
-    		source: "(343:10) {#if status !== 'None'}",
+    		source: "(347:10) {#if status !== 'None'}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (355:12) {#each info.items as item}
+    // (359:12) {#each info.items as item}
     function create_each_block_1(ctx) {
     	let span;
     	let t_value = /*item*/ ctx[21] + "";
@@ -7640,9 +7640,9 @@ var app = (function () {
     		c: function create() {
     			span = element("span");
     			t = text(t_value);
-    			attr_dev(span, "class", "chip svelte-1blfeex");
+    			attr_dev(span, "class", "chip svelte-r51hmw");
     			attr_dev(span, "title", span_title_value = /*item*/ ctx[21]);
-    			add_location(span, file$g, 355, 14, 7787);
+    			add_location(span, file$g, 359, 14, 7831);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, span, anchor);
@@ -7658,14 +7658,14 @@ var app = (function () {
     		block,
     		id: create_each_block_1.name,
     		type: "each",
-    		source: "(355:12) {#each info.items as item}",
+    		source: "(359:12) {#each info.items as item}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (352:8) {#each sideInfos as info}
+    // (356:8) {#each sideInfos as info}
     function create_each_block$7(ctx) {
     	let div1;
     	let div0;
@@ -7693,10 +7693,10 @@ var app = (function () {
     			}
 
     			t2 = space();
-    			attr_dev(div0, "class", "subTitle svelte-1blfeex");
-    			add_location(div0, file$g, 353, 12, 7691);
-    			attr_dev(div1, "class", "info svelte-1blfeex");
-    			add_location(div1, file$g, 352, 10, 7659);
+    			attr_dev(div0, "class", "subTitle svelte-r51hmw");
+    			add_location(div0, file$g, 357, 12, 7735);
+    			attr_dev(div1, "class", "info svelte-r51hmw");
+    			add_location(div1, file$g, 356, 10, 7703);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div1, anchor);
@@ -7745,14 +7745,14 @@ var app = (function () {
     		block,
     		id: create_each_block$7.name,
     		type: "each",
-    		source: "(352:8) {#each sideInfos as info}",
+    		source: "(356:8) {#each sideInfos as info}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (363:6) {#if anime.description}
+    // (367:6) {#if anime.description}
     function create_if_block$b(ctx) {
     	let div;
     	let raw_value = /*anime*/ ctx[0].description + "";
@@ -7760,8 +7760,8 @@ var app = (function () {
     	const block = {
     		c: function create() {
     			div = element("div");
-    			attr_dev(div, "class", "desc svelte-1blfeex");
-    			add_location(div, file$g, 363, 8, 7979);
+    			attr_dev(div, "class", "desc svelte-r51hmw");
+    			add_location(div, file$g, 367, 8, 8023);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -7778,7 +7778,7 @@ var app = (function () {
     		block,
     		id: create_if_block$b.name,
     		type: "if",
-    		source: "(363:6) {#if anime.description}",
+    		source: "(367:6) {#if anime.description}",
     		ctx
     	});
 
@@ -7955,53 +7955,53 @@ var app = (function () {
     			create_component(episodes_1.$$.fragment);
     			t18 = space();
     			create_component(addmatching.$$.fragment);
-    			attr_dev(div0, "class", "overlay svelte-1blfeex");
-    			add_location(div0, file$g, 303, 4, 6099);
-    			attr_dev(i, "class", "fas fa-heart fa-fw svelte-1blfeex");
-    			add_location(i, file$g, 305, 6, 6155);
-    			attr_dev(div1, "class", "score svelte-1blfeex");
-    			add_location(div1, file$g, 304, 4, 6128);
-    			attr_dev(div2, "class", "picture svelte-1blfeex");
+    			attr_dev(div0, "class", "overlay svelte-r51hmw");
+    			add_location(div0, file$g, 307, 4, 6143);
+    			attr_dev(i, "class", "fas fa-heart fa-fw svelte-r51hmw");
+    			add_location(i, file$g, 309, 6, 6199);
+    			attr_dev(div1, "class", "score svelte-r51hmw");
+    			add_location(div1, file$g, 308, 4, 6172);
+    			attr_dev(div2, "class", "picture svelte-r51hmw");
     			set_style(div2, "background-image", "url(" + /*anime*/ ctx[0].picture + ")");
-    			add_location(div2, file$g, 309, 6, 6252);
-    			attr_dev(div3, "class", "title svelte-1blfeex");
-    			add_location(div3, file$g, 310, 6, 6329);
+    			add_location(div2, file$g, 313, 6, 6296);
+    			attr_dev(div3, "class", "title svelte-r51hmw");
+    			add_location(div3, file$g, 314, 6, 6373);
     			if (img0.src !== (img0_src_value = "/images/detail_share_icon.png")) attr_dev(img0, "src", img0_src_value);
     			attr_dev(img0, "alt", "Share Icon");
-    			attr_dev(img0, "class", "svelte-1blfeex");
-    			add_location(img0, file$g, 313, 10, 6436);
-    			attr_dev(a0, "class", "svelte-1blfeex");
-    			add_location(a0, file$g, 312, 8, 6404);
+    			attr_dev(img0, "class", "svelte-r51hmw");
+    			add_location(img0, file$g, 317, 10, 6480);
+    			attr_dev(a0, "class", "svelte-r51hmw");
+    			add_location(a0, file$g, 316, 8, 6448);
     			if (img1.src !== (img1_src_value = "/images/mal_logo.jpg")) attr_dev(img1, "src", img1_src_value);
     			attr_dev(img1, "alt", "MyAnimeList Logo");
-    			attr_dev(img1, "class", "svelte-1blfeex");
-    			add_location(img1, file$g, 316, 10, 6603);
+    			attr_dev(img1, "class", "svelte-r51hmw");
+    			add_location(img1, file$g, 320, 10, 6647);
     			attr_dev(a1, "href", a1_href_value = "https://myanimelist.net/anime/" + /*anime*/ ctx[0].mal_id);
     			attr_dev(a1, "target", "_blank");
-    			attr_dev(a1, "class", "svelte-1blfeex");
-    			add_location(a1, file$g, 315, 8, 6520);
-    			attr_dev(div4, "class", "links svelte-1blfeex");
-    			add_location(div4, file$g, 311, 6, 6375);
-    			attr_dev(div5, "class", "head svelte-1blfeex");
-    			add_location(div5, file$g, 308, 4, 6226);
-    			attr_dev(div6, "class", "banner svelte-1blfeex");
+    			attr_dev(a1, "class", "svelte-r51hmw");
+    			add_location(a1, file$g, 319, 8, 6564);
+    			attr_dev(div4, "class", "links svelte-r51hmw");
+    			add_location(div4, file$g, 315, 6, 6419);
+    			attr_dev(div5, "class", "head svelte-r51hmw");
+    			add_location(div5, file$g, 312, 4, 6270);
+    			attr_dev(div6, "class", "banner svelte-r51hmw");
     			set_style(div6, "background-image", "url(" + (/*anime*/ ctx[0].banner ? /*anime*/ ctx[0].banner : "") + ")");
-    			add_location(div6, file$g, 300, 2, 5998);
-    			attr_dev(div7, "class", "content svelte-1blfeex");
-    			add_location(div7, file$g, 336, 6, 7167);
-    			attr_dev(div8, "class", "side svelte-1blfeex");
-    			add_location(div8, file$g, 327, 4, 6942);
+    			add_location(div6, file$g, 304, 2, 6042);
+    			attr_dev(div7, "class", "content svelte-r51hmw");
+    			add_location(div7, file$g, 340, 6, 7211);
+    			attr_dev(div8, "class", "side svelte-r51hmw");
+    			add_location(div8, file$g, 331, 4, 6986);
     			set_style(div9, "display", "flex");
     			set_style(div9, "align-items", "center");
-    			add_location(div9, file$g, 368, 8, 8103);
-    			attr_dev(div10, "class", "episodes svelte-1blfeex");
-    			add_location(div10, file$g, 367, 6, 8071);
-    			attr_dev(div11, "class", "main svelte-1blfeex");
-    			add_location(div11, file$g, 361, 4, 7920);
-    			attr_dev(main, "class", "svelte-1blfeex");
-    			add_location(main, file$g, 326, 2, 6930);
-    			attr_dev(div12, "class", "detail");
-    			add_location(div12, file$g, 299, 0, 5974);
+    			add_location(div9, file$g, 372, 8, 8147);
+    			attr_dev(div10, "class", "episodes svelte-r51hmw");
+    			add_location(div10, file$g, 371, 6, 8115);
+    			attr_dev(div11, "class", "main svelte-r51hmw");
+    			add_location(div11, file$g, 365, 4, 7964);
+    			attr_dev(main, "class", "svelte-r51hmw");
+    			add_location(main, file$g, 330, 2, 6974);
+    			attr_dev(div12, "class", "detail svelte-r51hmw");
+    			add_location(div12, file$g, 303, 0, 6018);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -8430,7 +8430,7 @@ var app = (function () {
     	return child_ctx;
     }
 
-    // (119:2) {#if notifications.length === 0}
+    // (118:2) {#if notifications.length === 0}
     function create_if_block$c(ctx) {
     	let div2;
     	let div0;
@@ -8455,20 +8455,20 @@ var app = (function () {
     			span1.textContent = "Seems like you have no new notifications to read";
     			t4 = space();
     			span2 = element("span");
-    			attr_dev(div0, "class", "picture svelte-nikyja");
+    			attr_dev(div0, "class", "picture svelte-1fi4z9k");
     			set_style(div0, "background-image", "('/images/aniapi_icon.png')");
-    			add_location(div0, file$h, 120, 6, 2327);
-    			attr_dev(span0, "class", "anime svelte-nikyja");
-    			add_location(span0, file$h, 124, 8, 2457);
-    			attr_dev(span1, "class", "message svelte-nikyja");
-    			add_location(span1, file$h, 125, 8, 2503);
-    			attr_dev(div1, "class", "info svelte-nikyja");
-    			add_location(div1, file$h, 123, 6, 2429);
-    			attr_dev(span2, "class", "time svelte-nikyja");
-    			add_location(span2, file$h, 129, 6, 2624);
-    			attr_dev(div2, "class", "notification svelte-nikyja");
+    			add_location(div0, file$h, 119, 6, 2301);
+    			attr_dev(span0, "class", "anime svelte-1fi4z9k");
+    			add_location(span0, file$h, 123, 8, 2431);
+    			attr_dev(span1, "class", "message svelte-1fi4z9k");
+    			add_location(span1, file$h, 124, 8, 2477);
+    			attr_dev(div1, "class", "info svelte-1fi4z9k");
+    			add_location(div1, file$h, 122, 6, 2403);
+    			attr_dev(span2, "class", "time svelte-1fi4z9k");
+    			add_location(span2, file$h, 128, 6, 2598);
+    			attr_dev(div2, "class", "notification svelte-1fi4z9k");
     			set_style(div2, "width", "100%");
-    			add_location(div2, file$h, 119, 4, 2274);
+    			add_location(div2, file$h, 118, 4, 2248);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div2, anchor);
@@ -8490,14 +8490,14 @@ var app = (function () {
     		block,
     		id: create_if_block$c.name,
     		type: "if",
-    		source: "(119:2) {#if notifications.length === 0}",
+    		source: "(118:2) {#if notifications.length === 0}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (133:2) {#each notifications as n}
+    // (132:2) {#each notifications as n}
     function create_each_block$8(ctx) {
     	let div2;
     	let div0;
@@ -8535,23 +8535,23 @@ var app = (function () {
     			span2 = element("span");
     			t4 = text(t4_value);
     			t5 = space();
-    			attr_dev(div0, "class", "picture svelte-nikyja");
+    			attr_dev(div0, "class", "picture svelte-1fi4z9k");
 
     			set_style(div0, "background-image", "url('" + (/*n*/ ctx[5].anime.picture
     			? /*n*/ ctx[5].anime.picture
     			: "") + "')");
 
-    			add_location(div0, file$h, 134, 6, 2736);
-    			attr_dev(span0, "class", "anime svelte-nikyja");
-    			add_location(span0, file$h, 138, 8, 2886);
-    			attr_dev(span1, "class", "message svelte-nikyja");
-    			add_location(span1, file$h, 141, 8, 2996);
-    			attr_dev(div1, "class", "info svelte-nikyja");
-    			add_location(div1, file$h, 137, 6, 2858);
-    			attr_dev(span2, "class", "time svelte-nikyja");
-    			add_location(span2, file$h, 145, 6, 3086);
-    			attr_dev(div2, "class", "notification svelte-nikyja");
-    			add_location(div2, file$h, 133, 4, 2702);
+    			add_location(div0, file$h, 133, 6, 2710);
+    			attr_dev(span0, "class", "anime svelte-1fi4z9k");
+    			add_location(span0, file$h, 137, 8, 2860);
+    			attr_dev(span1, "class", "message svelte-1fi4z9k");
+    			add_location(span1, file$h, 140, 8, 2970);
+    			attr_dev(div1, "class", "info svelte-1fi4z9k");
+    			add_location(div1, file$h, 136, 6, 2832);
+    			attr_dev(span2, "class", "time svelte-1fi4z9k");
+    			add_location(span2, file$h, 144, 6, 3060);
+    			attr_dev(div2, "class", "notification svelte-1fi4z9k");
+    			add_location(div2, file$h, 132, 4, 2676);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div2, anchor);
@@ -8596,7 +8596,7 @@ var app = (function () {
     		block,
     		id: create_each_block$8.name,
     		type: "each",
-    		source: "(133:2) {#each notifications as n}",
+    		source: "(132:2) {#each notifications as n}",
     		ctx
     	});
 
@@ -8625,8 +8625,8 @@ var app = (function () {
     				each_blocks[i].c();
     			}
 
-    			attr_dev(main, "class", "svelte-nikyja");
-    			add_location(main, file$h, 117, 0, 2226);
+    			attr_dev(main, "class", "svelte-1fi4z9k");
+    			add_location(main, file$h, 116, 0, 2200);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -8976,7 +8976,7 @@ var app = (function () {
     	return child_ctx;
     }
 
-    // (261:4) {:else}
+    // (257:4) {:else}
     function create_else_block$6(ctx) {
     	let div5;
     	let div3;
@@ -9010,25 +9010,25 @@ var app = (function () {
     			div4 = element("div");
     			span2 = element("span");
     			span2.textContent = "Waiting for next run...";
-    			attr_dev(div0, "class", "picture svelte-llfh3a");
+    			attr_dev(div0, "class", "picture svelte-1teyf5b");
     			set_style(div0, "background-image", "url('/images/aniapi_icon.png')");
-    			add_location(div0, file$j, 263, 10, 5250);
-    			attr_dev(span0, "class", "title svelte-llfh3a");
-    			add_location(span0, file$j, 267, 12, 5399);
+    			add_location(div0, file$j, 259, 10, 5186);
+    			attr_dev(span0, "class", "title svelte-1teyf5b");
+    			add_location(span0, file$j, 263, 12, 5335);
     			attr_dev(span1, "class", "type");
-    			add_location(span1, file$j, 268, 12, 5450);
-    			attr_dev(div1, "class", "genres svelte-llfh3a");
-    			add_location(div1, file$j, 269, 12, 5510);
-    			attr_dev(div2, "class", "info svelte-llfh3a");
-    			add_location(div2, file$j, 266, 10, 5367);
-    			attr_dev(div3, "class", "anime svelte-llfh3a");
-    			add_location(div3, file$j, 262, 8, 5219);
-    			attr_dev(span2, "class", "svelte-llfh3a");
-    			add_location(span2, file$j, 273, 10, 5605);
-    			attr_dev(div4, "class", "run svelte-llfh3a");
-    			add_location(div4, file$j, 272, 8, 5576);
-    			attr_dev(div5, "class", "scraper svelte-llfh3a");
-    			add_location(div5, file$j, 261, 6, 5188);
+    			add_location(span1, file$j, 264, 12, 5386);
+    			attr_dev(div1, "class", "genres svelte-1teyf5b");
+    			add_location(div1, file$j, 265, 12, 5446);
+    			attr_dev(div2, "class", "info svelte-1teyf5b");
+    			add_location(div2, file$j, 262, 10, 5303);
+    			attr_dev(div3, "class", "anime svelte-1teyf5b");
+    			add_location(div3, file$j, 258, 8, 5155);
+    			attr_dev(span2, "class", "svelte-1teyf5b");
+    			add_location(span2, file$j, 269, 10, 5541);
+    			attr_dev(div4, "class", "run svelte-1teyf5b");
+    			add_location(div4, file$j, 268, 8, 5512);
+    			attr_dev(div5, "class", "scraper svelte-1teyf5b");
+    			add_location(div5, file$j, 257, 6, 5124);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div5, anchor);
@@ -9055,14 +9055,14 @@ var app = (function () {
     		block,
     		id: create_else_block$6.name,
     		type: "else",
-    		source: "(261:4) {:else}",
+    		source: "(257:4) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (240:4) {#if animeScraping && !stopped}
+    // (236:4) {#if animeScraping && !stopped}
     function create_if_block$d(ctx) {
     	let div5;
     	let div3;
@@ -9117,29 +9117,29 @@ var app = (function () {
     			span2.textContent = "Run started";
     			t7 = space();
     			t8 = text(t8_value);
-    			attr_dev(div0, "class", "picture svelte-llfh3a");
+    			attr_dev(div0, "class", "picture svelte-1teyf5b");
 
     			set_style(div0, "background-image", "url('" + (/*animeScraping*/ ctx[1].picture
     			? /*animeScraping*/ ctx[1].picture
     			: "") + "')");
 
-    			add_location(div0, file$j, 242, 10, 4519);
-    			attr_dev(span0, "class", "title svelte-llfh3a");
-    			add_location(span0, file$j, 246, 12, 4697);
+    			add_location(div0, file$j, 238, 10, 4455);
+    			attr_dev(span0, "class", "title svelte-1teyf5b");
+    			add_location(span0, file$j, 242, 12, 4633);
     			attr_dev(span1, "class", "type");
-    			add_location(span1, file$j, 247, 12, 4759);
-    			attr_dev(div1, "class", "genres svelte-llfh3a");
-    			add_location(div1, file$j, 248, 12, 4819);
-    			attr_dev(div2, "class", "info svelte-llfh3a");
-    			add_location(div2, file$j, 245, 10, 4665);
-    			attr_dev(div3, "class", "anime svelte-llfh3a");
-    			add_location(div3, file$j, 241, 8, 4488);
-    			attr_dev(span2, "class", "svelte-llfh3a");
-    			add_location(span2, file$j, 256, 10, 5052);
-    			attr_dev(div4, "class", "run svelte-llfh3a");
-    			add_location(div4, file$j, 255, 8, 5023);
-    			attr_dev(div5, "class", "scraper svelte-llfh3a");
-    			add_location(div5, file$j, 240, 6, 4457);
+    			add_location(span1, file$j, 243, 12, 4695);
+    			attr_dev(div1, "class", "genres svelte-1teyf5b");
+    			add_location(div1, file$j, 244, 12, 4755);
+    			attr_dev(div2, "class", "info svelte-1teyf5b");
+    			add_location(div2, file$j, 241, 10, 4601);
+    			attr_dev(div3, "class", "anime svelte-1teyf5b");
+    			add_location(div3, file$j, 237, 8, 4424);
+    			attr_dev(span2, "class", "svelte-1teyf5b");
+    			add_location(span2, file$j, 252, 10, 4988);
+    			attr_dev(div4, "class", "run svelte-1teyf5b");
+    			add_location(div4, file$j, 251, 8, 4959);
+    			attr_dev(div5, "class", "scraper svelte-1teyf5b");
+    			add_location(div5, file$j, 236, 6, 4393);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div5, anchor);
@@ -9211,14 +9211,14 @@ var app = (function () {
     		block,
     		id: create_if_block$d.name,
     		type: "if",
-    		source: "(240:4) {#if animeScraping && !stopped}",
+    		source: "(236:4) {#if animeScraping && !stopped}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (250:14) {#each animeScraping.genres as g}
+    // (246:14) {#each animeScraping.genres as g}
     function create_each_block_1$1(ctx) {
     	let span;
     	let t_value = /*g*/ ctx[8] + "";
@@ -9228,8 +9228,8 @@ var app = (function () {
     		c: function create() {
     			span = element("span");
     			t = text(t_value);
-    			attr_dev(span, "class", "genre svelte-llfh3a");
-    			add_location(span, file$j, 250, 16, 4906);
+    			attr_dev(span, "class", "genre svelte-1teyf5b");
+    			add_location(span, file$j, 246, 16, 4842);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, span, anchor);
@@ -9247,14 +9247,14 @@ var app = (function () {
     		block,
     		id: create_each_block_1$1.name,
     		type: "each",
-    		source: "(250:14) {#each animeScraping.genres as g}",
+    		source: "(246:14) {#each animeScraping.genres as g}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (282:6) {#each queueItems as q}
+    // (278:6) {#each queueItems as q}
     function create_each_block$9(ctx) {
     	let current;
 
@@ -9294,7 +9294,7 @@ var app = (function () {
     		block,
     		id: create_each_block$9.name,
     		type: "each",
-    		source: "(282:6) {#each queueItems as q}",
+    		source: "(278:6) {#each queueItems as q}",
     		ctx
     	});
 
@@ -9351,18 +9351,18 @@ var app = (function () {
     				each_blocks[i].c();
     			}
 
-    			attr_dev(div0, "class", "section-title svelte-llfh3a");
-    			add_location(div0, file$j, 238, 4, 4365);
-    			attr_dev(div1, "class", "section svelte-llfh3a");
-    			add_location(div1, file$j, 237, 2, 4338);
-    			attr_dev(div2, "class", "section-title svelte-llfh3a");
-    			add_location(div2, file$j, 279, 4, 5723);
-    			attr_dev(div3, "class", "queue svelte-llfh3a");
-    			add_location(div3, file$j, 280, 4, 5774);
-    			attr_dev(div4, "class", "section svelte-llfh3a");
-    			add_location(div4, file$j, 278, 2, 5696);
-    			attr_dev(main, "class", "svelte-llfh3a");
-    			add_location(main, file$j, 236, 0, 4328);
+    			attr_dev(div0, "class", "section-title svelte-1teyf5b");
+    			add_location(div0, file$j, 234, 4, 4301);
+    			attr_dev(div1, "class", "section svelte-1teyf5b");
+    			add_location(div1, file$j, 233, 2, 4274);
+    			attr_dev(div2, "class", "section-title svelte-1teyf5b");
+    			add_location(div2, file$j, 275, 4, 5659);
+    			attr_dev(div3, "class", "queue svelte-1teyf5b");
+    			add_location(div3, file$j, 276, 4, 5710);
+    			attr_dev(div4, "class", "section svelte-1teyf5b");
+    			add_location(div4, file$j, 274, 2, 5632);
+    			attr_dev(main, "class", "svelte-1teyf5b");
+    			add_location(main, file$j, 232, 0, 4264);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -9600,7 +9600,7 @@ var app = (function () {
     	return child_ctx;
     }
 
-    // (252:4) {#each points as p}
+    // (253:4) {#each points as p}
     function create_each_block_1$2(ctx) {
     	let div1;
     	let img;
@@ -9631,16 +9631,16 @@ var app = (function () {
     			t4 = space();
     			if (img.src !== (img_src_value = "/images/" + /*p*/ ctx[5].image + ".png")) attr_dev(img, "src", img_src_value);
     			attr_dev(img, "alt", img_alt_value = "" + (/*p*/ ctx[5].title + " Icon"));
-    			attr_dev(img, "class", "svelte-p94qt9");
-    			add_location(img, file$k, 253, 8, 5650);
-    			attr_dev(h3, "class", "svelte-p94qt9");
-    			add_location(h3, file$k, 255, 10, 5746);
-    			attr_dev(p, "class", "svelte-p94qt9");
-    			add_location(p, file$k, 256, 10, 5776);
-    			attr_dev(div0, "class", "info svelte-p94qt9");
-    			add_location(div0, file$k, 254, 8, 5716);
-    			attr_dev(div1, "class", "point svelte-p94qt9");
-    			add_location(div1, file$k, 252, 6, 5621);
+    			attr_dev(img, "class", "svelte-1w16651");
+    			add_location(img, file$k, 254, 8, 5685);
+    			attr_dev(h3, "class", "svelte-1w16651");
+    			add_location(h3, file$k, 256, 10, 5781);
+    			attr_dev(p, "class", "svelte-1w16651");
+    			add_location(p, file$k, 257, 10, 5811);
+    			attr_dev(div0, "class", "info svelte-1w16651");
+    			add_location(div0, file$k, 255, 8, 5751);
+    			attr_dev(div1, "class", "point svelte-1w16651");
+    			add_location(div1, file$k, 253, 6, 5656);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div1, anchor);
@@ -9664,14 +9664,14 @@ var app = (function () {
     		block,
     		id: create_each_block_1$2.name,
     		type: "each",
-    		source: "(252:4) {#each points as p}",
+    		source: "(253:4) {#each points as p}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (263:4) {#each features as f}
+    // (264:4) {#each features as f}
     function create_each_block$a(ctx) {
     	let current;
 
@@ -9712,7 +9712,7 @@ var app = (function () {
     		block,
     		id: create_each_block$a.name,
     		type: "each",
-    		source: "(263:4) {#each features as f}",
+    		source: "(264:4) {#each features as f}",
     		ctx
     	});
 
@@ -9817,40 +9817,40 @@ var app = (function () {
     				each_blocks[i].c();
     			}
 
-    			add_location(br, file$k, 227, 8, 4811);
-    			attr_dev(span, "class", "sub svelte-p94qt9");
-    			add_location(span, file$k, 225, 6, 4749);
-    			attr_dev(h1, "class", "svelte-p94qt9");
-    			add_location(h1, file$k, 223, 4, 4698);
-    			add_location(b0, file$k, 233, 8, 4942);
-    			attr_dev(div0, "class", "left svelte-p94qt9");
-    			add_location(div0, file$k, 232, 6, 4914);
-    			attr_dev(img0, "class", "logo svelte-p94qt9");
+    			add_location(br, file$k, 228, 8, 4846);
+    			attr_dev(span, "class", "sub svelte-1w16651");
+    			add_location(span, file$k, 226, 6, 4784);
+    			attr_dev(h1, "class", "svelte-1w16651");
+    			add_location(h1, file$k, 224, 4, 4733);
+    			add_location(b0, file$k, 234, 8, 4977);
+    			attr_dev(div0, "class", "left svelte-1w16651");
+    			add_location(div0, file$k, 233, 6, 4949);
+    			attr_dev(img0, "class", "logo svelte-1w16651");
     			if (img0.src !== (img0_src_value = "/images/aniapi_icon.png")) attr_dev(img0, "src", img0_src_value);
     			attr_dev(img0, "alt", "AniAPI Logo");
-    			add_location(img0, file$k, 237, 6, 5092);
-    			add_location(b1, file$k, 239, 8, 5197);
-    			attr_dev(img1, "class", "mini svelte-p94qt9");
+    			add_location(img0, file$k, 238, 6, 5127);
+    			add_location(b1, file$k, 240, 8, 5232);
+    			attr_dev(img1, "class", "mini svelte-1w16651");
     			if (img1.src !== (img1_src_value = "/images/anilist_logo.png")) attr_dev(img1, "src", img1_src_value);
     			attr_dev(img1, "alt", "AniList Logo");
-    			add_location(img1, file$k, 241, 8, 5236);
-    			add_location(b2, file$k, 243, 8, 5393);
-    			attr_dev(img2, "class", "mini svelte-p94qt9");
+    			add_location(img1, file$k, 242, 8, 5271);
+    			add_location(b2, file$k, 244, 8, 5428);
+    			attr_dev(img2, "class", "mini svelte-1w16651");
     			if (img2.src !== (img2_src_value = "/images/mal_logo.jpg")) attr_dev(img2, "src", img2_src_value);
     			attr_dev(img2, "alt", "MyAnimeList Logo");
-    			add_location(img2, file$k, 245, 8, 5426);
-    			attr_dev(div1, "class", "right svelte-p94qt9");
-    			add_location(div1, file$k, 238, 6, 5168);
-    			attr_dev(div2, "class", "resources svelte-p94qt9");
-    			add_location(div2, file$k, 231, 4, 4883);
-    			attr_dev(div3, "class", "jumbo svelte-p94qt9");
-    			add_location(div3, file$k, 222, 2, 4673);
-    			attr_dev(div4, "class", "points svelte-p94qt9");
-    			add_location(div4, file$k, 250, 2, 5568);
-    			attr_dev(div5, "class", "features svelte-p94qt9");
-    			add_location(div5, file$k, 261, 2, 5848);
-    			attr_dev(main, "class", "svelte-p94qt9");
-    			add_location(main, file$k, 221, 0, 4663);
+    			add_location(img2, file$k, 246, 8, 5461);
+    			attr_dev(div1, "class", "right svelte-1w16651");
+    			add_location(div1, file$k, 239, 6, 5203);
+    			attr_dev(div2, "class", "resources svelte-1w16651");
+    			add_location(div2, file$k, 232, 4, 4918);
+    			attr_dev(div3, "class", "jumbo svelte-1w16651");
+    			add_location(div3, file$k, 223, 2, 4708);
+    			attr_dev(div4, "class", "points svelte-1w16651");
+    			add_location(div4, file$k, 251, 2, 5603);
+    			attr_dev(div5, "class", "features svelte-1w16651");
+    			add_location(div5, file$k, 262, 2, 5883);
+    			attr_dev(main, "class", "svelte-1w16651");
+    			add_location(main, file$k, 222, 0, 4698);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -11457,7 +11457,7 @@ var app = (function () {
     /* src\App.svelte generated by Svelte v3.23.0 */
     const file$m = "src\\App.svelte";
 
-    // (53:2) {#if page === 'home'}
+    // (56:2) {#if page === 'home'}
     function create_if_block_5(ctx) {
     	let current;
     	const home = new Home({ $$inline: true });
@@ -11488,14 +11488,14 @@ var app = (function () {
     		block,
     		id: create_if_block_5.name,
     		type: "if",
-    		source: "(53:2) {#if page === 'home'}",
+    		source: "(56:2) {#if page === 'home'}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (57:2) {#if page === 'detail'}
+    // (60:2) {#if page === 'detail'}
     function create_if_block_4$1(ctx) {
     	let current;
     	const detail = new Detail({ $$inline: true });
@@ -11526,14 +11526,14 @@ var app = (function () {
     		block,
     		id: create_if_block_4$1.name,
     		type: "if",
-    		source: "(57:2) {#if page === 'detail'}",
+    		source: "(60:2) {#if page === 'detail'}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (61:2) {#if page === 'about'}
+    // (64:2) {#if page === 'about'}
     function create_if_block_3$1(ctx) {
     	let current;
     	const about = new About({ $$inline: true });
@@ -11564,14 +11564,14 @@ var app = (function () {
     		block,
     		id: create_if_block_3$1.name,
     		type: "if",
-    		source: "(61:2) {#if page === 'about'}",
+    		source: "(64:2) {#if page === 'about'}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (65:2) {#if page === 'status'}
+    // (68:2) {#if page === 'status'}
     function create_if_block_2$6(ctx) {
     	let current;
     	const status = new Status({ $$inline: true });
@@ -11602,14 +11602,14 @@ var app = (function () {
     		block,
     		id: create_if_block_2$6.name,
     		type: "if",
-    		source: "(65:2) {#if page === 'status'}",
+    		source: "(68:2) {#if page === 'status'}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (69:2) {#if page === 'notification'}
+    // (72:2) {#if page === 'notification'}
     function create_if_block_1$7(ctx) {
     	let current;
     	const notification = new Notification({ $$inline: true });
@@ -11640,14 +11640,14 @@ var app = (function () {
     		block,
     		id: create_if_block_1$7.name,
     		type: "if",
-    		source: "(69:2) {#if page === 'notification'}",
+    		source: "(72:2) {#if page === 'notification'}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (73:2) {#if page === 'termsprivacy'}
+    // (76:2) {#if page === 'termsprivacy'}
     function create_if_block$e(ctx) {
     	let current;
     	const termsprivacy = new TermsPrivacy({ $$inline: true });
@@ -11678,7 +11678,7 @@ var app = (function () {
     		block,
     		id: create_if_block$e.name,
     		type: "if",
-    		source: "(73:2) {#if page === 'termsprivacy'}",
+    		source: "(76:2) {#if page === 'termsprivacy'}",
     		ctx
     	});
 
@@ -11726,7 +11726,8 @@ var app = (function () {
     			create_component(footer.$$.fragment);
     			t7 = space();
     			create_component(videoplayer.$$.fragment);
-    			add_location(main, file$m, 51, 0, 1341);
+    			attr_dev(main, "class", "svelte-f80muj");
+    			add_location(main, file$m, 54, 0, 1416);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");

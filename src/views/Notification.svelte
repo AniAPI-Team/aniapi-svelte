@@ -105,7 +105,6 @@
   @media screen and (max-width: 1200px) {
     main {
       padding: 0 14px;
-      min-height: 550px;
     }
 
     .notification {

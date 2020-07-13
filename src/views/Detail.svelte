@@ -118,6 +118,10 @@
 </script>
 
 <style>
+  .detail {
+    margin-top: -24px;
+  }
+
   .banner {
     position: relative;
     padding: 32px 0 24px 0;
