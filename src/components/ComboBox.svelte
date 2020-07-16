@@ -56,6 +56,10 @@
     showDropdown = true;
   }
 
+  function hide() {
+    showDropdown = false;
+  }
+
   function changeItem(value) {
     if (single) {
       deselectAll();
@@ -137,6 +141,7 @@
   }
 
   .fa-chevron-down,
+  .fa-chevron-up,
   .fa-times {
     font-size: 12px;
     opacity: 0.6;
@@ -153,6 +158,7 @@
   }
 
   .fa-chevron-down,
+  .fa-chevron-up,
   .fa-times {
     margin-left: 8px;
     transition: 0.3s;
@@ -160,6 +166,7 @@
   }
 
   .fa-chevron-down:hover,
+  .fa-chevron-up:hover,
   .fa-times:hover {
     opacity: 0.9;
     transition: 0.3s;
@@ -245,6 +252,8 @@
     on:click={show} />
   {#if !empty}
     <i class="fas fa-times fa-fw" on:click={clear} />
+  {:else if showDropdown === true}
+    <i class="fas fa-chevron-up fa-fw" on:click={hide} />
   {:else}
     <i class="fas fa-chevron-down fa-fw" on:click={show} />
   {/if}
