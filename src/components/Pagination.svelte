@@ -2,7 +2,13 @@
   export let page = 1;
   export let callback;
 
+  let xDown;
+  let yDown;
+
   document.addEventListener("keyup", keyUp);
+
+  document.addEventListener("touchstart", touchStart, false);
+  document.addEventListener("touchmove", touchMove, false);
 
   function keyUp(e) {
     if (e.keyCode === 39) {
@@ -10,6 +16,37 @@
     } else if (e.keyCode === 37) {
       changePage(-1);
     }
+  }
+
+  function touchStart(e) {
+    xDown = e.touches[0].clientX;
+    yDown = e.touches[0].clientY;
+  }
+
+  function touchMove(e) {
+    if (!xDown) {
+      return;
+    }
+
+    let xUp = e.touches[0].clientX;
+    let yUp = e.touches[0].clientY;
+
+    let xDiff = xDown - xUp;
+    let yDiff = yDown - yUp;
+
+    if (Math.abs(xDiff) > Math.abs(yDiff)) {
+      // HORIZONTAL SWIPE
+      if (xDiff > 0) {
+        // TO LEFT
+        changePage(-1);
+      } else {
+        // TO RIGHT
+        changePage(1);
+      }
+    }
+
+    xDown = undefined;
+    yDown = undefined;
   }
 
   function changePage(n) {
@@ -24,46 +61,3 @@
     }
   }
 </script>
-
-<style>
-  /*.pages {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 42px;
-    color: #748899;
-    font-size: 14px;
-    user-select: none;
-  }
-
-  .before,
-  .after {
-    cursor: pointer;
-    transition: 0.3s;
-  }
-
-  .before:hover,
-  .after:hover {
-    color: #8d46b8;
-    transition: 0.3s;
-  }
-
-  .after.hidden,
-  .before.hidden {
-    visibility: hidden;
-  }*/
-</style>
-
-<!--<div class="pages">
-  <span
-    class="before {page <= 1 ? 'hidden' : ''}"
-    on:click={() => changePage(-1)}>
-    <i class="fas fa-chevron-left fa-fw" />
-    Previous
-  </span>
-  <span class="current">{page}</span>
-  <span class="after {empty ? 'hidden' : ''}" on:click={() => changePage(1)}>
-    Next
-    <i class="fas fa-chevron-right fa-fw" />
-  </span>
-</div>-->
