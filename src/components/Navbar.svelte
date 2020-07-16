@@ -8,6 +8,17 @@
 
   currentUser.subscribe(newUser => (user = newUser));
 
+  window.onpopstate = e => {
+    let state = e.state;
+    let page = "home";
+
+    if (state) {
+      page = state.page;
+    }
+
+    currentPage.set(page);
+  };
+
   function changePage(page) {
     if (page === "github") {
       window.open("https://github.com/AniAPI-Team/aniapi-svelte");
@@ -16,6 +27,7 @@
     } else if (page === "api") {
       window.open("https://github.com/AniAPI-Team/aniapi-go/wiki");
     } else {
+      history.pushState({ page: page }, "");
       currentPage.set(page);
     }
   }
