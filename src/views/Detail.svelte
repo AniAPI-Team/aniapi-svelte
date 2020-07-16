@@ -332,7 +332,7 @@
     <div class="side">
       {#if anime.trailer}
         <iframe
-          src={anime.trailer}
+          src={anime.trailer.replace('http', 'https')}
           title="Trailer"
           class="trailer"
           frameborder="0"
