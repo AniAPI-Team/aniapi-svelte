@@ -38,10 +38,10 @@
       // HORIZONTAL SWIPE
       if (xDiff > 0) {
         // TO LEFT
-        changePage(-1);
+        changePage(1);
       } else {
         // TO RIGHT
-        changePage(1);
+        changePage(-1);
       }
     }
 
