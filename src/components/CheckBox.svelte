@@ -3,12 +3,31 @@
   export let checked = false;
   export let callback;
 
+  let state = JSON.parse(
+    window.sessionStorage.getItem(
+      label.replace(" ", "").toLowerCase() + "_state"
+    )
+  );
+  checked = state ? true : false;
+  if (callback) {
+    callback(checked);
+  }
+
   function toggle() {
     checked = !checked;
+
+    saveCheckState();
 
     if (callback) {
       callback(checked);
     }
+  }
+
+  function saveCheckState() {
+    window.sessionStorage.setItem(
+      label.replace(" ", "").toLowerCase() + "_state",
+      checked
+    );
   }
 </script>
 

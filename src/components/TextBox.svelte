@@ -9,6 +9,16 @@
 
   if (!text) {
     text = "";
+
+    let state = window.sessionStorage.getItem(hint + "_state");
+    if (state) {
+      text = state;
+      empty = state === "";
+
+      if (callback) {
+        callback(text);
+      }
+    }
   }
 
   function keyUp(e) {
@@ -17,14 +27,22 @@
     empty = value === "";
     text = value;
 
+    saveTextState();
+
     if (callback) {
       callback(text);
     }
   }
 
+  function saveTextState() {
+    window.sessionStorage.setItem(hint + "_state", text);
+  }
+
   function clear() {
     text = "";
     empty = true;
+
+    saveTextState();
 
     if (callback) {
       callback(text);

@@ -34,6 +34,17 @@
     };
   }
 
+  let state = JSON.parse(window.sessionStorage.getItem(hint + "_state"));
+  if (state) {
+    for (let i = 0; i < items.length; i++) {
+      items[i].selected = state.includes(items[i].value);
+    }
+
+    empty = !isOneSelected();
+    items = items;
+    callCallback();
+  }
+
   document.body.addEventListener("click", function(e) {
     let outside = true;
     for (let i = 0; i < e.path.length; i++) {
@@ -72,12 +83,24 @@
     empty = !isOneSelected();
     text = "";
 
+    saveSelectionState();
     callCallback();
+  }
+
+  function saveSelectionState() {
+    let state = [];
+    for (let i = 0; i < items.length; i++) {
+      if (items[i].selected) {
+        state.push(items[i].value);
+      }
+    }
+
+    window.sessionStorage.setItem(hint + "_state", JSON.stringify(state));
   }
 
   function isOneSelected() {
     for (let i = 0; i < items.length; i++) {
-      if (items[i].selected) {
+      if (items[i].selected && items[i].value !== selected) {
         return true;
       }
     }
@@ -121,6 +144,7 @@
       }
     }
 
+    saveSelectionState();
     callCallback();
 
     empty = true;
