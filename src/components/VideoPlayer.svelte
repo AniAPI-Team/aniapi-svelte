@@ -86,7 +86,7 @@
     }
   }
 
-  @media screen and (orientation: landscape) {
+  @media screen and (max-width: 1200px) and (orientation: landscape) {
     .video-player {
       width: 100%;
     }
