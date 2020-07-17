@@ -19,10 +19,12 @@
     sort: "Score",
     desc: true,
     page: 1,
+    reset: false,
     results: []
   };
   let searchTimeout;
   let emptyPage;
+  let emptyFilters = true;
 
   function onTitleChange(text) {
     search.title = text;
@@ -87,6 +89,28 @@
         ),
       500
     );
+
+    emptyFilters =
+      search.title === "" &&
+      search.genres.length === 0 &&
+      search.type === "TV" &&
+      search.sort === "Score";
+  }
+
+  function clearFilters() {
+    search.title = "";
+    search.genres = [];
+    search.type = "TV";
+    search.sort = "Score";
+    emptyFilters = true;
+
+    window.sessionStorage.clear();
+    search.reset = true;
+    setTimeout(() => {
+      search.reset = false;
+    }, 0);
+
+    onChange();
   }
 
   onChange();
@@ -151,35 +175,45 @@
 </style>
 
 <main>
-  <div class="search-filters">
-    <TextBox hint="Search" callback={onTitleChange} />
-    <ComboBox
-      hint="Genres"
-      items={get(animeGenres)}
-      callback={onGenresChange} />
-    <ComboBox
-      hint="Type"
-      items={get(animeTypes)}
-      selected="TV"
-      single={true}
-      callback={onTypeChange} />
-    <ComboBox
-      hint="Sort"
-      items={get(animeSorts)}
-      selected="Score"
-      single={true}
-      callback={onSortChange} />
-    <CheckBox
-      label="Sort descending"
-      checked={true}
-      callback={onSortDirectionChange} />
-    <Button
-      icon="keyboard"
-      tooltip="You can use <b>arrow keys</b> or <b>swipe's gestures</b> to
-      change page"
-      circle={true}
-      css="margin-left:auto" />
-  </div>
+  {#if !search.reset}
+    <div class="search-filters">
+      <TextBox hint="Search" callback={onTitleChange} />
+      <ComboBox
+        hint="Genres"
+        items={get(animeGenres)}
+        callback={onGenresChange} />
+      <ComboBox
+        hint="Type"
+        items={get(animeTypes)}
+        selected="TV"
+        single={true}
+        callback={onTypeChange} />
+      <ComboBox
+        hint="Sort"
+        items={get(animeSorts)}
+        selected="Score"
+        single={true}
+        callback={onSortChange} />
+      <CheckBox
+        label="Sort descending"
+        checked={true}
+        callback={onSortDirectionChange} />
+      {#if !emptyFilters}
+        <Button
+          icon="times"
+          tooltip="Clear filters"
+          circle={true}
+          callback={clearFilters}
+          css="margin-left:auto" />
+      {/if}
+      <Button
+        icon="keyboard"
+        tooltip="You can use <b>arrow keys</b> or <b>swipe's gestures</b> to
+        change page"
+        circle={true}
+        css="margin-left:auto" />
+    </div>
+  {/if}
   <div class="search-tags">
     {#if search.title !== ''}
       <SearchTag name="Title" tags={[search.title]} />

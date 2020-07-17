@@ -8,7 +8,11 @@
       label.replace(" ", "").toLowerCase() + "_state"
     )
   );
-  checked = state ? true : false;
+
+  if (state !== null && state !== undefined) {
+    checked = state ? true : false;
+  }
+
   if (callback) {
     callback(checked);
   }
