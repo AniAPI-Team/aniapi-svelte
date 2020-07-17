@@ -4,6 +4,8 @@
   export let css;
   export let counter = false;
 
+  export let progress;
+
   if (!counter) {
     for (let i = 0; i < items.length; i++) {
       if (!items[i].value) {
@@ -50,6 +52,7 @@
   }
 
   .tab {
+    position: relative;
     display: inline-block;
     padding: 8px 16px;
     border-radius: 8px;
@@ -63,6 +66,24 @@
     transition: 0.3s;
   }
 
+  .tab.active::after {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 24px;
+    height: 24px;
+    content: "";
+    background-color: rgb(123, 213, 85);
+    border-radius: 12px;
+    opacity: 0.3;
+  }
+
+  .tab.selected::after,
+  .tab:hover::after {
+    background-color: transparent;
+  }
+
   .tab:hover {
     cursor: pointer;
     background-color: rgb(173, 109, 211);
@@ -73,7 +94,10 @@
 <div class="tabs" style={css}>
   {#each items as item, i}
     {#if counter}
-      <div class="tab {item ? 'selected' : ''}" on:click={() => onClick(i)}>
+      <div
+        class="tab {item ? 'selected' : ''}
+        {progress >= i + 1 ? 'active' : ''}"
+        on:click={() => onClick(i)}>
         {i + 1}
       </div>
     {:else}

@@ -387,7 +387,11 @@
           animeId={anime.id}
           from={selectedFrom}
           reload={reloadMatching} />
-        <Tabs items={episodes} callback={onEpisodeTabChange} counter={true} />
+        <Tabs
+          items={episodes}
+          callback={onEpisodeTabChange}
+          counter={true}
+          {progress} />
         <Episodes number={episodeNumber} animeId={anime.id} />
       </div>
     </div>
