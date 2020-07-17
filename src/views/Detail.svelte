@@ -344,7 +344,7 @@
             items={get(animeStatuses)}
             selected={status}
             callback={onStatusChange} />
-          {#if status !== 'None'}
+          {#if status !== 'None' && status !== 'Completed'}
             <NumericBox
               hint="Progress"
               css="margin-top:8px"
