@@ -1,6 +1,10 @@
 <script>
   import Button from "./Button.svelte";
+  import { get } from "svelte/store";
   import { getMatchings, increaseMatchingVote } from "../api.js";
+  import { currentUser } from "../store.js";
+
+  let user = get(currentUser);
 
   export let animeId;
   export let from;
@@ -210,7 +214,7 @@
             circle={true}
             css="margin-left:auto"
             callback={() => inspect(m.url)} />
-          {#if !m.voted}
+          {#if !m.voted && user}
             <Button
               icon="vote-yea"
               tooltip="Vote as OK"
