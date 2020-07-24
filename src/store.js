@@ -89,9 +89,11 @@ export const animeStatuses = readable([
 ])
 
 export const animeEpisodesFrom = readable([
-  'dreamsub'
+  'dreamsub',
+  'gogoanime'
 ])
 
 export const animeEpisodesFromTemplate = readable({
-  'dreamsub': 'https://dreamsub.stream/anime/anime-name'
+  'dreamsub': 'https://dreamsub.stream/anime/anime-name',
+  'gogoanime': 'https://gogoanime.pro/anime/anime_name-anime_id'
 })

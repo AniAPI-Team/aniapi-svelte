@@ -95,6 +95,8 @@
 
   function onMatchingTabChange(value) {
     selectedFrom = value;
+    reloadMatching = false;
+    reloadMatching = true;
   }
 
   function onAddMatching() {

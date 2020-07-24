@@ -28,7 +28,7 @@
     }
     items = items;
 
-    callback(value + 1);
+    callback(counter ? value + 1 : value);
   }
 </script>
 
