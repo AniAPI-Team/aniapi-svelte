@@ -16,8 +16,17 @@
     }
   }
 
-  function watch(value) {
-    currentVideo.set(value);
+  function watch(from, value) {
+    if (from === "dreamsub") {
+      currentVideo.set(
+        "http://localhost:8080/api/v1/proxy?url=" +
+          encodeURIComponent(value) +
+          "&referer=" +
+          encodeURIComponent("https://dreamsub.stream")
+      );
+    } else {
+      currentVideo.set(value);
+    }
   }
 </script>
 
@@ -126,7 +135,7 @@
     <div>No episodes found</div>
   {/if}
   {#each foundEpisodes as episode}
-    <div class="episode" on:click={() => watch(episode.source)}>
+    <div class="episode" on:click={() => watch(episode.from, episode.source)}>
       <div class="overlay">
         Watch
         <i class="fas fa-play fa-fw" />

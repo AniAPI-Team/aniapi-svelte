@@ -10,7 +10,6 @@
       return;
     }
 
-    console.log(newSrc);
     if (newSrc.includes("vvvid")) {
       window.open(newSrc);
     } else if (newSrc.includes("streamtape")) {
