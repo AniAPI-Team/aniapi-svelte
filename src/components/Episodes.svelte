@@ -1,4 +1,5 @@
 <script>
+  import { get } from "svelte/store";
   import { currentVideo, API } from "../store.js";
   import { getEpisodes } from "../api.js";
 
