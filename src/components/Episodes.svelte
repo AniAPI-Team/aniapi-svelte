@@ -1,6 +1,8 @@
 <script>
-  import { currentVideo } from "../store.js";
+  import { currentVideo, API } from "../store.js";
   import { getEpisodes } from "../api.js";
+
+  const api = get(API);
 
   export let animeId;
   export let number;
@@ -19,7 +21,8 @@
   function watch(from, value) {
     if (from === "dreamsub") {
       currentVideo.set(
-        "http://localhost:8080/api/v1/proxy?url=" +
+        api.url +
+          "proxy?url=" +
           encodeURIComponent(value) +
           "&referer=" +
           encodeURIComponent("https://dreamsub.stream")
