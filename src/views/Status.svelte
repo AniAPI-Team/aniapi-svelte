@@ -35,6 +35,7 @@
 
         animeScraping = message.data.anime;
         animeScraping.start_time = message.data.start_time;
+        animeScraping.memory = message.data.memory;
         return;
       case "queue":
         if (!message.data) {
@@ -184,6 +185,10 @@
     color: white;
   }
 
+  .memory {
+    margin-bottom: 32px;
+  }
+
   .run {
     align-self: flex-end;
     text-align: right;
@@ -250,6 +255,7 @@
           </div>
         </div>
         <div class="run">
+          <div class="memory">{animeScraping.memory}% memory</div>
           <span>Run started</span>
           {getTimePassedFromDate(animeScraping.start_time)}
         </div>
