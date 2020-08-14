@@ -20,17 +20,7 @@
   }
 
   function watch(from, value) {
-    if (from === "dreamsub") {
-      currentVideo.set(
-        api.url +
-          "proxy?url=" +
-          encodeURIComponent(value) +
-          "&referer=" +
-          encodeURIComponent("https://dreamsub.stream")
-      );
-    } else {
-      currentVideo.set(value);
-    }
+    currentVideo.set(value);
   }
 </script>
 

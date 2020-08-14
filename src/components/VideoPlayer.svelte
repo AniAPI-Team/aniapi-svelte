@@ -14,6 +14,13 @@
       window.open(newSrc);
     } else if (newSrc.includes("streamtape")) {
       window.open(newSrc);
+    } else if (newSrc.includes("dreamsub")) {
+      src =
+        api.url +
+        "proxy?url=" +
+        encodeURIComponent(newSrc) +
+        "&referer=" +
+        encodeURIComponent("https://dreamsub.stream");
     } else {
       src = newSrc;
     }
