@@ -1,9 +1,6 @@
 <script>
-  import { get } from "svelte/store";
-  import { currentVideo, API } from "../store.js";
+  import { currentVideo } from "../store.js";
   import { getEpisodes } from "../api.js";
-
-  const api = get(API);
 
   export let animeId;
   export let number;

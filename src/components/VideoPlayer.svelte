@@ -1,5 +1,8 @@
 <script>
-  import { currentVideo } from "../store.js";
+  import { get } from "svelte/store";
+  import { currentVideo, API } from "../store.js";
+
+  const api = get(API);
 
   export let src;
   let video;
