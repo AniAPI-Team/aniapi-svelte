@@ -17,7 +17,12 @@
   }
 
   function watch(from, value) {
-    currentVideo.set(value);
+    currentVideo.set({
+      animeId: animeId,
+      from: from,
+      number: number,
+      value: value
+    });
   }
 </script>
 
@@ -37,6 +42,22 @@
     padding: 8px;
     background-color: white;
     border-radius: 8px;
+  }
+
+  .episode.watched {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+
+  .episode .percentual {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 2px;
+    content: "";
+    background-color: #8d46b8;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
   }
 
   .episode:hover {
@@ -66,6 +87,11 @@
     z-index: 9;
     animation-name: hide;
     animation-duration: 0.3s;
+  }
+
+  .episode.watched .overlay {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
   }
 
   @keyframes show {
@@ -108,6 +134,11 @@
     text-transform: uppercase;
   }
 
+  .region .fa-check-circle {
+    margin-left: auto;
+    color: rgb(123, 213, 85);
+  }
+
   .episode .title {
     display: block;
     margin-top: 8px;
@@ -126,7 +157,9 @@
     <div>No episodes found</div>
   {/if}
   {#each foundEpisodes as episode}
-    <div class="episode" on:click={() => watch(episode.from, episode.source)}>
+    <div
+      class="episode {episode.percentual && !episode.completed ? 'watched' : ''}"
+      on:click={() => watch(episode.from, episode.source)}>
       <div class="overlay">
         Watch
         <i class="fas fa-play fa-fw" />
@@ -134,10 +167,16 @@
       <div class="region">
         <span class="flag-icon flag-icon-{episode.region}" />
         <span class="from">{episode.from}</span>
+        {#if episode.completed}
+          <i class="fas fa-check-circle fa-fw" />
+        {/if}
       </div>
       <span class="title">
         {episode.title === '' ? 'No title provided' : episode.title}
       </span>
+      {#if episode.percentual && !episode.completed}
+        <div class="percentual" style="width:{episode.percentual}%;" />
+      {/if}
     </div>
   {/each}
 </div>

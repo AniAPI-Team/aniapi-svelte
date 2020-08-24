@@ -83,6 +83,24 @@ export async function getEpisodes(animeId, number, page, callback) {
   });
 
   let data = await res.json();
+
+  let watches = JSON.parse(localStorage.getItem('user_watches'));
+
+  if (watches) {
+    for (let i = 0; i < data.length; i++) {
+      let d = data[i];
+
+      let key = d.from + '_' + animeId + '_' + d.number;
+      let watch = watches[key];
+
+      if (watch) {
+        watch = JSON.parse(watch);
+        d.completed = watch.completed;
+        d.percentual = watch.percentual;
+      }
+    }
+  }
+
   callback(data);
 }
 

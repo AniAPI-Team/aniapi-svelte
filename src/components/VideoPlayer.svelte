@@ -9,24 +9,47 @@
 
   currentVideo.subscribe(newSrc => {
     if (!newSrc) {
-      src = newSrc;
+      src = undefined;
       return;
     }
 
-    if (newSrc.includes("vvvid")) {
-      window.open(newSrc);
-    } else if (newSrc.includes("streamtape")) {
-      window.open(newSrc);
-    } else if (newSrc.includes("dreamsub")) {
+    let value = newSrc.value;
+
+    if (value.includes("vvvid")) {
+      window.open(value);
+    } else if (value.includes("streamtape")) {
+      window.open(value);
+    } else if (value.includes("dreamsub")) {
       src =
         api.url +
         "proxy?url=" +
-        encodeURIComponent(newSrc) +
+        encodeURIComponent(value) +
         "&referer=" +
         encodeURIComponent("https://dreamsub.stream");
     } else {
-      src = newSrc;
+      src = value;
     }
+
+    video.ontimeupdate = e => {
+      let diff = video.duration - video.currentTime;
+      let perc = (video.currentTime * 100) / video.duration;
+      let completed = diff <= 140;
+
+      let watches = JSON.parse(localStorage.getItem("user_watches"));
+
+      if (!watches) {
+        watches = {};
+      }
+
+      let key = newSrc.from + "_" + newSrc.animeId + "_" + newSrc.number;
+      watches[key] = JSON.stringify({
+        time: video.currentTime,
+        percentual: perc,
+        completed: completed
+      });
+
+      localStorage.setItem("user_watches", JSON.stringify(watches));
+    };
   });
 
   function close() {
