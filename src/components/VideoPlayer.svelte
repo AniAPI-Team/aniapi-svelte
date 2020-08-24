@@ -1,6 +1,7 @@
 <script>
   import { get } from "svelte/store";
-  import { currentVideo, API } from "../store.js";
+  import { currentAnime, currentVideo, API } from "../store.js";
+  import { updateAnimeProgress } from "../anilist.js";
 
   const api = get(API);
 
@@ -49,6 +50,10 @@
       });
 
       localStorage.setItem("user_watches", JSON.stringify(watches));
+
+      if (completed) {
+        updateAnimeProgress(get(currentAnime).anilist_id, newSrc.number);
+      }
     };
   });
 
