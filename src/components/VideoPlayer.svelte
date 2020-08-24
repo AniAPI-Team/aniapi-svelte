@@ -7,6 +7,8 @@
 
   export let src;
   let video;
+  let alreadyCompleted = false;
+  let firstTime = true;
 
   currentVideo.subscribe(newSrc => {
     if (!newSrc) {
@@ -31,7 +33,15 @@
       src = value;
     }
 
+    video.oncanplay = e => onCanPlay(newSrc);
+
     video.ontimeupdate = e => {
+      if (video.readyState === 0) {
+        firstTime = true;
+        onCanPlay(newSrc);
+        return;
+      }
+
       let diff = video.duration - video.currentTime;
       let perc = (video.currentTime * 100) / video.duration;
       let completed = diff <= 140;
@@ -51,8 +61,9 @@
 
       localStorage.setItem("user_watches", JSON.stringify(watches));
 
-      if (completed) {
+      if (completed && !alreadyCompleted) {
         updateAnimeProgress(get(currentAnime).anilist_id, newSrc.number);
+        alreadyCompleted = true;
       }
     };
   });
@@ -60,6 +71,26 @@
   function close() {
     currentVideo.set(undefined);
     video.pause();
+  }
+
+  function onCanPlay(newSrc) {
+    if (!firstTime) {
+      return;
+    }
+
+    let watches = JSON.parse(localStorage.getItem("user_watches"));
+
+    if (watches) {
+      let key = newSrc.from + "_" + newSrc.animeId + "_" + newSrc.number;
+      let watch = watches[key];
+
+      if (watch) {
+        watch = JSON.parse(watch);
+        video.currentTime = watch.time;
+      }
+    }
+
+    firstTime = false;
   }
 </script>
 
