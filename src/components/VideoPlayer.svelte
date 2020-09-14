@@ -54,8 +54,8 @@
 
       let key = newSrc.from + "_" + newSrc.animeId + "_" + newSrc.number;
       watches[key] = JSON.stringify({
-        time: video.currentTime,
-        percentual: perc,
+        time: completed ? 0 : video.currentTime,
+        percentual: completed ? 100 : perc,
         completed: completed
       });
 

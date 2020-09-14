@@ -27,7 +27,7 @@
     } else if (page === "api") {
       window.open("https://github.com/AniAPI-Team/aniapi-go/wiki");
     } else {
-      history.pushState({ page: page }, "");
+      history.pushState({ page: page }, "", "?");
       currentPage.set(page);
     }
   }

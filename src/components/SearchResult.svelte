@@ -29,7 +29,7 @@
 
   function selectAnime(anime) {
     currentAnime.set(anime);
-    history.pushState({ page: "detail" }, "");
+    history.pushState({ page: "detail" }, "", "?anime=" + anime.id);
     currentPage.set("detail");
   }
 </script>
